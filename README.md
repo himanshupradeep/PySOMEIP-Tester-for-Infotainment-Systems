@@ -1,0 +1,2 @@
+# PySOMEIP-Tester-for-Infotainment-Systems
+Automated infotainment ECU testing over SOME/IP (AUTOSAR) using Python &amp; pytest. Covers Audio Control, Media Player &amp; Navigation services with 9 test cases including boundary values, state machine transitions and route lifecycle validation. Simulated head unit over UDP, maps directly to real Automotive Ethernet hardware via someipy and python-can.
