@@ -16,9 +16,9 @@
 
 ## Why infotainment matters in the SDV era?
 
-The infotainment system is no longer just a screen with a radio. In a software-defined vehicle it is one of the most active software surfaces in the car — receiving over-the-air updates, connecting to cloud services, exchanging diagnostic data with the backend, and acting as the primary human-machine interface for everything from navigation to vehicle settings.
+The infotainment system is no longer just a screen with a radio. In a software-defined vehicle, it is one of the most active software surfaces in the car receiving over-the-air updates, connecting to cloud services, exchanging diagnostic data with the backend, and acting as the primary human-machine interface for everything from navigation to vehicle settings.
 
-This makes it one of the highest-risk areas to test. A regression in the audio service after an OTA update, a navigation state that does not clear correctly after a route cancellation, or a media player that silently accepts an out-of-range command — none of these cause a crash, but all of them reach the customer. In an SDV context where software drops happen frequently and remotely, automated regression at the service layer is not optional.
+This makes it one of the highest-risk areas to test. A regression in the audio service after an OTA update, a navigation state that does not clear correctly after a route cancellation, or a media player that silently accepts an out-of-range command, none of these cause a crash, but all of them reach the customer. In an SDV context where software drops happen frequently and remotely, automated regression at the service layer is not optional.
 
 ---
 
@@ -28,7 +28,7 @@ Modern infotainment ECUs communicate using a layered stack that combines multipl
 
 ### SOME/IP — Scalable service-Oriented MiddlEwarE over IP
 
-SOME/IP is the AUTOSAR standard for service-to-service communication over Automotive Ethernet. Every function exposed by the infotainment ECU — audio control, media playback, navigation — is a SOME/IP service with a defined Service ID and a set of Method IDs. Clients send requests; services respond. Notifications can be sent without a request (event-driven).
+SOME/IP is the AUTOSAR standard for service-to-service communication over Automotive Ethernet. Every function exposed by the infotainment ECU like audio control, media playback and navigation is a SOME/IP service with a defined Service ID and a set of Method IDs. Clients send requests; services respond. Notifications can be sent without a request (event-driven).
 
 Each SOME/IP message has a fixed 16-byte header:
 
@@ -45,17 +45,17 @@ Byte  15   : Return code       0x00=E_OK  0x20=E_VALUE_OUT_OF_RANGE
 Byte  16+  : Payload
 ```
 
-### CAN bus — Controller Area Network
+### CAN bus - Controller Area Network
 
 CAN is the classical in-vehicle network used for lower-speed signals: sensor readings, body control, climate, basic status broadcasts. The infotainment ECU receives audio volume status, vehicle speed, and door state over CAN. Testing this layer uses `python-can` with a virtual interface in CI and a Vector or PCAN interface in the lab.
 
-### DoIP — Diagnostics over Internet Protocol (ISO 13400)
+### DoIP - Diagnostics over Internet Protocol (ISO 13400)
 
 DoIP carries UDS diagnostic messages over TCP/IP instead of CAN, enabling diagnostic communication over the same Ethernet backbone used for SOME/IP services. This is how the vehicle's head unit is accessed during remote diagnostics, OTA validation, and end-of-line testing.
 
-### UDS / SOVD — Diagnostic services
+### UDS / SOVD - Diagnostic services
 
-**UDS (ISO 14229)** defines the diagnostic services the head unit supports — reading software version DIDs, reading fault codes, triggering ECU reset, flashing new software. These run over DoIP on modern infotainment systems.
+**UDS (ISO 14229)** defines the diagnostic services the head unit supports reading software version DIDs, reading fault codes, triggering ECU reset, flashing new software. These run over Do-IP on modern infotainment systems.
 
 **SOVD (Service-Oriented Vehicle Diagnostics)** is the next-generation layer above UDS, exposing diagnostic functions as discoverable REST-style endpoints. In an SDV architecture, the cloud backend and remote engineering tools interact with the vehicle's diagnostics through SOVD rather than raw UDS byte sequences.
 
