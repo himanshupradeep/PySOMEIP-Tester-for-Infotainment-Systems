@@ -123,7 +123,8 @@ Audio control is the most used service on any infotainment ECU. These tests cove
 
 ### Sequence — volume round-trip and boundary rejection
 
-"C:\Users\himan\Pictures\Screenshots\Screenshot 2026-03-29 164642.png"
+<img width="776" height="617" alt="Screenshot 2026-03-29 164642" src="https://github.com/user-attachments/assets/bcefea58-6522-4bf3-99e8-1c88c28a6fe5" />
+
 
 ```python
 def test_tc01_volume_set_and_get(self, client, ecu):
