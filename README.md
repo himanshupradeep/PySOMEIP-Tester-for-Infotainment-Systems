@@ -339,6 +339,7 @@ with SOMEIPClient(host="127.0.0.1", port=30490) as client:
 with SOMEIPClient(host="192.168.1.10", port=30490) as client:
     confirmed = client.set_volume(75)
 ```
+---
 
 For a production setup with `someipy` (AUTOSAR SOME/IP library):
 
@@ -356,6 +357,7 @@ response = audio_service.call_method(
     payload=bytes([75])
 )
 ```
+---
 
 For CAN signals alongside SOME/IP (python-can):
 
@@ -377,6 +379,11 @@ if msg and msg.arbitration_id == 0x210:
 ## Test results
 
 <img width="919" height="494" alt="image" src="https://github.com/user-attachments/assets/bb60e7bd-036c-4cb1-8c5f-d53400d2ca4b" />
+
+---
+
+<img width="796" height="702" alt="image" src="https://github.com/user-attachments/assets/2aea6595-6817-42bf-8f03-23552392af8d" />
+
 
 ```
 ============================== 9 passed in 0.61s ==============================
