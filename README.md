@@ -3,7 +3,7 @@
 <img width="960" height="540" alt="image" src="https://github.com/user-attachments/assets/d686d233-9387-4c46-b9a5-920130bd9a96" />
 
 
-> Automated testing of automotive infotainment services over SOME/IP (AUTOSAR) using Python and pytest — no hardware required.
+> Simulation of Automated testing of automotive infotainment services over SOME/IP (AUTOSAR) using Python and pytest.
 
 ## Tech stack
 
